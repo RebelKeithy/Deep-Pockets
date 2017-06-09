@@ -10,6 +10,7 @@ import com.rebelkeithy.deeppockets.DeepPocketsConfig;
 import com.rebelkeithy.deeppockets.proxy.compatability.Compatability;
 
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
@@ -27,8 +28,13 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.oredict.OreDictionary;
 
-public class ItemMiningPack extends Item 
-{
+public class ItemMiningPack extends Item {
+	
+	ItemMiningPack(){
+		this.setCreativeTab(CreativeTabs.TOOLS);
+		this.setHasSubtypes(true);
+	}
+
 	public static Map<Integer, String> prefix = new HashMap<Integer, String>();
 	static
 	{
@@ -397,5 +403,5 @@ public class ItemMiningPack extends Item
     			tag.removeTag(oreDictName);
     		}
     	}
-    }
+    }  
 }

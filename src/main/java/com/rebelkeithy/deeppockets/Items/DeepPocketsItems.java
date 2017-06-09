@@ -3,43 +3,52 @@ package com.rebelkeithy.deeppockets.Items;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.rebelkeithy.deeppockets.DeepPocketsMod;
 import com.rebelkeithy.deeppockets.PackModel;
 
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class DeepPocketsItems 
 {
-	public static ItemMiningPack miningPack;
-	public static ItemMiningPack advancedMiningPack;
+	public static Item miningPack;
+	public static Item advancedMiningPack;
 	
-	public static void init()
-	{
-		miningPack = (ItemMiningPack) new ItemMiningPack(5).setUnlocalizedName("miningpack").setRegistryName("miningpack").setCreativeTab(CreativeTabs.TOOLS);
-		advancedMiningPack = (ItemMiningPack) new ItemMiningPack(10).setUnlocalizedName("advancedminingpack").setRegistryName("advancedminingpack").setCreativeTab(CreativeTabs.TOOLS);
+	public static final List<Item> items = new ArrayList<Item>();	
+	
+	public static final void commonPreInit(){
+		miningPack = registerItem(new ItemMiningPack(5), "mining_pack").setCreativeTab(CreativeTabs.TOOLS);
+		advancedMiningPack = registerItem(new ItemMiningPack(10), "advanced_mining_pack").setCreativeTab(CreativeTabs.TOOLS);
 	}
 	
-	public static void registerItems()
-	{
-		GameRegistry.register(miningPack);
-		GameRegistry.register(advancedMiningPack);
+	public static final void clientpreInit(){
+		for(Item item:items){
+			registerRender(item);
+		}
 	}
 	
-	public static void registeryRenderers()
-	{
-		List<ModelResourceLocation> packModels = new ArrayList<ModelResourceLocation>();
-		List<ModelResourceLocation> advancedPackModels = new ArrayList<ModelResourceLocation>();
+	private static final Item registerItem(Item item,String name){
+		GameRegistry.register(item, new ResourceLocation(DeepPocketsMod.MODID, name));
+		item.setUnlocalizedName(name);
+		items.add(item);
+		return item;
+	}
+	@SideOnly(value = Side.CLIENT) 
+	private static final void registerRender(Item item){
+		List<ModelResourceLocation> packModels = new ArrayList<ModelResourceLocation>();		
 		for(int i = 1; i <= 4; i++)
 		{
-			packModels.add(new ModelResourceLocation("miningpack:miningpack" + i, "inventory"));
-			advancedPackModels.add(new ModelResourceLocation("miningpack:advancedminingpack" + i, "inventory"));
+			packModels.add(new ModelResourceLocation(item.getRegistryName()+""+ i, "inventory"));			
 		}
 		
-		ModelLoader.registerItemVariants(miningPack, packModels.toArray(new ModelResourceLocation[packModels.size()]));
-		ModelLoader.registerItemVariants(advancedMiningPack, advancedPackModels.toArray(new ModelResourceLocation[advancedPackModels.size()]));
-		ModelLoader.setCustomMeshDefinition(miningPack, new PackModel());
-		ModelLoader.setCustomMeshDefinition(advancedMiningPack, new PackModel());
+		ModelLoader.registerItemVariants(item, packModels.toArray(new ModelResourceLocation[packModels.size()]));		
+		ModelLoader.setCustomMeshDefinition(item, new PackModel());		
 	}
+	
 }

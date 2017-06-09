@@ -48,7 +48,7 @@ public class ItemPickupEvent
 							player.world.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.AMBIENT, 0.2f, f);
 							
 							Compatability.setCount(event.getItem().getEntityItem(), 0);
-							event.setCanceled(true);
+							event.setCanceled(true);					    
 							return;
 						}
 					}
