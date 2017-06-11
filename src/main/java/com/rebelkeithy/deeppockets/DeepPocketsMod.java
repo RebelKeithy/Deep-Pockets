@@ -21,7 +21,7 @@ public class DeepPocketsMod
 	@Mod.Instance(MODID)
 	public static DeepPocketsMod instance;
 	
-	@SidedProxy(serverSide = "com.rebelkeithy.deeppockets.proxy.ServerProxy", clientSide = "com.rebelkeithy.deeppockets.proxy.ClientProxy")
+	@SidedProxy(serverSide = "com.rebelkeithy.deeppockets.proxy.CommonProxy", clientSide = "com.rebelkeithy.deeppockets.proxy.ClientProxy")
 	public static CommonProxy proxy;
 	
     @EventHandler
