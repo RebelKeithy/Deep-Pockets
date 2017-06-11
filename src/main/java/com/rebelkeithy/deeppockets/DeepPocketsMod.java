@@ -1,6 +1,5 @@
 package com.rebelkeithy.deeppockets;
 
-import com.rebelkeithy.deeppockets.Items.DeepPocketsItems;
 import com.rebelkeithy.deeppockets.event.ItemPickupEvent;
 import com.rebelkeithy.deeppockets.proxy.CommonProxy;
 import com.rebelkeithy.deeppockets.proxy.compatability.Compatability;
@@ -26,23 +25,19 @@ public class DeepPocketsMod
 	public static CommonProxy proxy;
 	
     @EventHandler
-    public void preinit(FMLPreInitializationEvent event)
-    {
-    	Compatability.init();
-    	
-		Configuration config = new Configuration(event.getSuggestedConfigurationFile());
-		DeepPocketsConfig.init(config);
-		
-    	DeepPocketsItems.init();
-    	DeepPocketsItems.registerItems();
-    	DeepPocketsItems.registeryRenderers();
+    public void preinit(FMLPreInitializationEvent e){
+    	proxy.preinit(e);
+    
+    	Compatability.init();    	
+		Configuration config = new Configuration(e.getSuggestedConfigurationFile());
+		DeepPocketsConfig.init(config);		
+		  	
     }
     
     @EventHandler
-    public void init(FMLInitializationEvent event)
-    {
-    	Recipies.registerRecipies();
-    	
+    public void init(FMLInitializationEvent e){
+    	proxy.init(e);    
+    	Recipies.registerRecipies();    	
     	MinecraftForge.EVENT_BUS.register(new ItemPickupEvent());
-    }
+    }   
 }
