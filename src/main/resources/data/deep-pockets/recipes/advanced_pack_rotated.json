@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PEP",
+    "E E",
+    "PEP"
+  ],
+  "key": {
+    "E": {
+      "item": "minecraft:ender_eye"
+    },
+    "P": {
+      "item": "deep-pockets:pack"
+    }
+  },
+  "result": {
+    "item": "deep-pockets:advanced_pack",
+    "count": 1
+  }
+}

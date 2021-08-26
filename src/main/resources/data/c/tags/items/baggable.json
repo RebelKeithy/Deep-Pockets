@@ -1,0 +1,26 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:raw_iron",
+    "minecraft:raw_copper",
+    "minecraft:raw_gold",
+    "minecraft:coal",
+    "minecraft:emerald",
+    "minecraft:diamond",
+    "minecraft:lapis_lazuli",
+    "minecraft:redstone",
+    "minecraft:gold_nugget",
+    "minecraft:flint",
+    "minecraft:ancient_debris",
+    "minecraft:quartz",
+    "minecraft:nether_quartz_ore",
+    "#minecraft:coal_ores",
+    "#minecraft:copper_ores",
+    "#minecraft:diamond_ores",
+    "#minecraft:emerald_ores",
+    "#minecraft:gold_ores",
+    "#minecraft:iron_ores",
+    "#minecraft:lapis_ores",
+    "#minecraft:redstone_ores"
+  ]
+}
