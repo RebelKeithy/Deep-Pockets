@@ -4,16 +4,15 @@
   "version": "${version}",
 
   "name": "Deep Pockets",
-  "description": "<TODO>",
+  "description": "Miner's Packs hold items you get from minings, ores and gems. The pack can only hold a few different items, but an unlimited amount of each.",
   "authors": [
     "RebelKeithy"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "sources": "https://github.com/RebelKeithy/Deep-Pockets/tree/fabric-1.17.1"
   },
 
-  "license": "CC0-1.0",
+  "license": "MIT",
   "icon": "assets/deep-pockets/icon.png",
 
   "environment": "*",

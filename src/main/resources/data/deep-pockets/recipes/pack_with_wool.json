@@ -7,7 +7,7 @@
   ],
   "key": {
     "L": {
-      "item": "#minecraft:wool"
+      "tag": "minecraft:wool"
     },
     "C": {
       "item": "minecraft:chest"
