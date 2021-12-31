@@ -4,7 +4,7 @@ import com.rebelkeithy.deeppockets.config.Config;
 import com.rebelkeithy.deeppockets.config.ConfigLoader;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.fabricmc.fabric.api.tag.TagRegistry;
+import net.fabricmc.fabric.api.tag.TagFactory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.tag.Tag;
@@ -15,7 +15,8 @@ public class DeepPockets implements ModInitializer {
 
 	public static final String MOD_ID = "deep-pockets";
 
-	public static final Tag<Item> BAGGABLE = TagRegistry.item(new Identifier("c", "baggable"));
+	public static final Tag<Item> BAGGABLE = TagFactory.ITEM.create(new Identifier("c", "baggable"));
+
 	public static PackItem PACK;
 	public static PackItem ADVANCED_PACK;
 
